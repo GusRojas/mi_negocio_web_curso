@@ -15,7 +15,7 @@ class Categoria(models.Model):
         return self.nombre
 
     def get_absolute_url(self):
-        return reverse('tienda:lista_productos',
+        return reverse('tienda:lista_productos_por_categoria',
                         args =[self.slug])
 
 class Producto(models.Model):
@@ -28,7 +28,7 @@ class Producto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     disponibilidad = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
-    actualizado = models.DataTimeField(auto_now=True)
+    actualizado = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ('nombre',)
