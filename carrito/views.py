@@ -24,5 +24,9 @@ def remover_carrito(request, producto_id):
 
 def carrito_detalle(request):
     carrito = Carrito(request)
+    for item in carrito:
+        item['form_actual_cantidad'] = FormularioAgregarProducto(initial={
+            'cantidad': item['cantidad'],
+            'sobreescribir': True})
     return render(request, 'carrito/detalle.html', {'carrito': carrito})
 
