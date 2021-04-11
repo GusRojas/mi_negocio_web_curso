@@ -5,4 +5,5 @@ app_name = 'nucleo'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    
 ]
